@@ -1,0 +1,190 @@
+
+<;;style>
+div.container{
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	background-color: #eee;
+}
+
+.edit_work_btn{
+	position: absolute;
+	margin-left: 60%;
+}
+.gap_filler{
+	margin: 5%;
+}
+
+
+.my-footer{
+		background-color: gray;
+		padding: 30px 30px; 
+		position: static;
+}
+.admin_message{
+	color: red;
+}
+.new_btn{
+	width: 100%;
+}
+.pos-link-btn{
+	text-orientation: none;
+	text-decoration: none;
+}
+.pos-barcode-item-title{
+margin-left: 30%;
+margin-right: 30%;
+margin-bottom: 5%;
+}
+.pos-add-user{
+	margin-left: 44%;
+	position: all;
+}
+.pos-add-item{
+	margin-left: 60%;
+	position: all;
+}
+.pos-add-barcode{
+	margin-left: 40%;
+	width: 50%;
+	position: all;
+}
+.pos-edit-user{
+	margin: 10%;
+	position: all;
+}
+.pos-table{
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	position: relative;
+	
+}
+.pos-table > th, td{
+
+	width: 10%;
+	padding: 30px;
+	border: 1px solid black;
+	position: relative;
+}
+.pos-table > thead{
+	background: -webkit-linear-gradient(right, #ff0000, #110e11);
+	border: 1px solid black;
+	color: white;
+}
+.pos-show-user{
+	margin-left: 10%;
+	margin-right: 50%;
+	position: absolute;
+}
+.pos-show-item{
+	margin-left: 5%;
+	margin-right: 60%;
+	position: absolute;
+}
+.pos-show-item-barcoded{
+	margin-left: 20%;
+	margin-right: 60%;
+	position: absolute;
+}
+.pos-show-archive-user{
+	margin-left: 30%;
+	margin-right: 30%;
+	position: static;
+}
+.pos-show-archive-item{
+	margin-left: 22.5%;
+	margin-right: 30%;
+	position: all;
+}
+
+@media screen and (max-width: 767px) {
+.pos-add-item{
+	margin-left: 0%;
+	position: relative;
+}
+.pos-add-user{
+	margin: 0%;
+	position: relative;
+}
+.pos-show-user{
+	margin-left: 0%;
+	position: relative;
+}
+.pos-show-item{
+	margin-left: 0%;
+	position: relative;
+}
+.pos-show-archive-user{
+	margin: 0%;
+	position: relative;
+}
+.pos-show-archive-item{
+	margin: 0%;
+	position: relative;
+}
+}
+.my-title{
+	margin-top: 1%;
+	text-align: center;
+}
+.my-form{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid black;
+	outline: none;
+	background: none;
+}
+.my-form:focus{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid green;
+	outline: none;
+	background: none;
+}
+.pos-btn-barcode{
+	border-radius: 20px;
+	border-color: none;
+	background color: green;
+	width: 30%;
+	height: 35px;
+	outline: none;
+	color: white;
+	 background: -webkit-linear-gradient(right, #ff0000, #110e11);
+}
+.pos-btn-barcode:hover{
+	border-radius: 20px;
+	border-color: none;
+	background color: green;
+	width: 30%;
+	height: 35px;
+	outline: none;
+	color: white;
+	 background: -webkit-linear-gradient(right, #110e11, #e5e914);
+}
+.pos-btn{
+	border-radius: 20px;
+	border-color: none;
+	background color: green;
+	width: 50%;
+	height: 50px;
+	outline: none;
+	color: white;
+	 background: -webkit-linear-gradient(right, #4482ff, #110e11);
+}
+.pos-btn:hover{
+	border-radius: 20px;
+	border-color: none;
+	background color: green;
+	width: 50%;
+	height: 50px;
+	outline: none;
+	color: white;
+	 background: -webkit-linear-gradient(right, #110e11, #e5e914);
+}
+
+
+</style>

@@ -1,0 +1,383 @@
+<style>
+div.container{
+	padding: 0px;
+	margin: 0px;
+}
+.my-footer{
+		background-color: #2557ba;
+		padding: 10px 10px; 
+		margin-top: 5%;
+}
+.new_btn{
+	width: 100%;
+}
+
+.my_tbl{
+ text-align: center;
+ word-wrap: normal;
+}
+
+.my-top-cover-company-profile{
+	background-image: url('../../Form/images/web_company_profile.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 180px;
+	display: block;
+	position: relative;
+	margin-top: 1%;
+	margin-bottom: 5%;
+	margin-right: 
+}
+.my-title{
+	margin-top: 1%;
+	text-align: center;
+}
+.my-form{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid black;
+	width: 100%;
+	height: 40px;
+	text-indent: 10px;
+	outline: none;
+}
+.my-form:focus{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid green;
+	width: 100%;
+	height: 40px;
+	text-indent: 10px;
+	outline: none;
+}
+.navbar-inverse {
+  background-color: transparent;
+  font-size: 20px;
+}
+.navbar-inverse .navbar-brand {
+  color: black;
+}
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 0px;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: transparent;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: green;
+  background-color: transparent;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: green;
+  background-color: transparent;
+}
+.navbar-inverse .navbar-toggle {
+  border-color: transparent;
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: green;
+  background-color: transparent;
+}
+  .navbar-inverse .navbar-nav  > li > a:hover,
+  .navbar-inverse .navbar-nav > li > a:focus {
+    color: green;
+    background-color: transparent;
+  }
+
+.navbar-inverse .btn-link:hover,
+.navbar-inverse .btn-link:focus {
+  color: green;
+}
+@media (min-width: 768px) {
+  .nav-tabs.nav-justified > li > a {
+    border-bottom: 1px transparent;
+    border-radius: 4px 4px 0 0;
+  }
+}
+.my-modal-title{
+	color: black;
+	font-family: sans-serif;
+	font-weight: 500px;
+}
+.my-modal-header{
+	background-color: black;
+}
+.my-modal-container{
+	margin: 30px;
+}
+.my-icon{
+	color: black;
+}
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: green;
+    background-color: transparent;
+  }
+  .navbar-inverse .navbar-nav > li >a {
+    color: black;
+}
+  .navbar-inverse .navbar-link:hover {
+  color: green;
+}
+
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: black;
+  }
+  @media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
+    border-color: transparent;
+  }
+}
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: transparent;
+}
+
+.my-welcome-label{
+	margin: 50px;
+	color: black; 
+	font-family: sans-serif; 
+	font-size: 38px;
+}
+.my-log-in{
+	width: 400px; 
+	height: 400px;
+	box-shadow: 0 0 20px black;
+	margin-top: 30px;
+	
+}
+.my-simple-form{
+	box-shadow: 0 0 20px black;
+	
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+@media only screen and (max-width: 320px)  {
+.my-log-in{
+width: 100%;
+margin-top: 10px;
+}
+.my-welcome-label{
+		margin: 20px;
+	}
+}
+@media only screen and (max-height: 480px)  {
+.my-log-in{
+height: 100%;
+margin-top: 10px;
+}
+.my-welcome-label{
+		margin: 20px;
+	}
+}
+.my-span{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	background-color: white;
+}
+.my-home{
+	background-image: url('../../Form/images/main_bbackground.jpg');
+	background-repeat: repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+}
+.my-admin{
+	background-image: url('../../Form/images/main_bbackground.jpg');
+	background-repeat: repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	display: relative;
+	position: relative;
+}	
+
+.my-product{
+	background-image: url('../images/home1.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 460px;
+	display: block;
+	position: relative;
+}
+.my-product-title{
+	color: #282828; 
+	font-family: 'Lobster 1.4'; 
+	font-size: 120px;
+}
+.my-donation{
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	padding: 20px 40px;
+	display: block;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.my-member{
+	background-image: url('../images/sign up.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	width: 100%;
+	height: 460px;
+	font-size: 20px;
+	padding: 20px 40px;
+	display: block;
+}
+.donation-form{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 2px solid green;
+	width: 100%;
+	height: 40px;
+	text-indent: 10px;
+	background-color: black;
+	color: white;
+}
+.donation-span{
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	background-color: black;
+}
+.donation-icon{
+	color: white;
+}
+.my-message{
+	background-image: url('../images/comment.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 300px;
+	display: block;
+	position: relative;
+	padding: 50px 50px;
+	padding-top: 30px;
+}
+.my-message-section{
+	padding: 80px 20px;
+}
+.my-cover{
+	padding-top: 10%; 
+	float: right;
+	padding-right: 30%;
+
+}
+.my-message-link{
+	color: white;
+	text-decoration: none;
+	background-color: green;
+	border: 1px solid green;
+	
+}
+.my-message-link:hover{
+	color: white;
+	text-decoration: none;
+	background-color: blue;
+	border: 1px solid blue;
+	
+}
+.my-message-say{
+	font-size: 20px;
+
+}
+.my_button_applicant{
+width: 100%; 
+margin: 10px;"
+}
+.my_product{
+	height: 400px;
+	background-color: #f7f7f7;
+}
+.my-code{
+margin: 10px;
+background-color: white;
+padding: 50px 50px;	
+}
+@media only screen and (max-width: 990px)  {
+.my_button_applicant{
+width: 100%;
+margin: 10px;"
+}
+.my-cover{
+		padding-top: 30%;
+		padding-right: 20%;
+
+}
+.my-message-say{
+	font-size: 15px;
+	}
+	.my-message-section{
+	padding: 0px;
+}
+.my-message{
+	background-image: url('../images/comment.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 300px;
+	display: block;
+	position: relative;
+	padding: 0px;
+	padding-top: 100px;
+}
+.my-product-title{
+	color: black; 
+	font-family: 'Lobster 1.4'; 
+	font-size: 80px;
+}
+}
+
+
+
+</style>
