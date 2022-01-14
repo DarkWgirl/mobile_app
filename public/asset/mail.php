@@ -13,7 +13,7 @@ $mail->Port = "587"; // typically 587
 $mail->SMTPSecure = 'tls'; // ssl is depracated
 $mail->SMTPAuth = true;
 $mail->Username = "technopacer2021@gmail.com";
-$mail->Password = "@2021tcp_trsit";
+$mail->Password = "@2021tcp_trist";
 $mail->setFrom("technopacer2021@gmail.com", "Technopacer");
 
 $mail->SMTPOptions = array(

@@ -21,9 +21,10 @@ if($check_access > 0){
     $_SESSION['warning'] = "Account<br>Already Exist";
 		$_SESSION['writer_id'] = $fetch_details['writer_id'];
 }else{
-	$insertUser = mysqli_query($pos_db, "INSERT INTO student_tbl (stdent_fname, student_lname, student_email, student_password, student_number) VALUES ('$fname', '$lname', '$email', '$password', '$snumber')");
+	$insertUser = mysqli_query($pos_db, "INSERT INTO student_tbl (student_fname, student_lname, student_email, student_password, student_number) VALUES ('$fname', '$lname', '$email', '$password', '$snumber')");
     $id = mysqli_insert_id($pos_db);
     $_SESSION['student_id'] = $id;
+    echo $id;
 
 }
 
