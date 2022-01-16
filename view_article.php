@@ -66,8 +66,8 @@ if($exist_like > 0){
                    
 
 </head>
-<div ng-app="myStoreApp" ng-controller="myStoreAppCtrl">
-<body>
+<div>
+<body ng-app="myStoreApp" ng-controller="myStoreAppCtrl">
 <style type="text/css">
   .my-nav{
     background-color: lightgreen;
