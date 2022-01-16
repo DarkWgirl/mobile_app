@@ -7,6 +7,105 @@ var login_form = {};
 
 var student_form = {};
 
+
+$scope.addComment = function(student_form){
+	$http({
+		method: 'post',
+		url: 'public/php_script/addComment.php',
+		data: student_form
+
+	}).success(function(){
+	location.reload();
+	});
+}
+
+
+$scope.deleteComment = function(data){
+
+	var r = confirm("are you sure you want to delete this comment?");
+	if(r){
+	$http({
+		method: 'post',
+		url: 'public/php_script/deleteComment.php',
+		data: data	
+
+	}).success(function(res){
+location.reload();
+
+	});
+
+	}
+}
+
+
+$scope.editComment = function(data){
+
+	var r = confirm("are you sure you want to edit this comment?");
+	if(r){
+	
+	$("#edit_comment").modal("show");
+	$http({
+		method: 'post',
+		url: 'public/php_script/editComments.php',
+		data: data	
+
+	}).success(function(res){
+	$scope.comments = res;
+
+	});
+
+	}
+}
+
+
+
+$scope.likeArticle = function(data){
+	$http({
+	method: 'post',
+	url: 'public/php_script/likeArticle.php',
+	data: data	
+
+	}).success(function(){
+		location.reload();		
+	});
+}
+
+$scope.unlikeArticle = function(data){
+	$http({
+	method: 'post',
+	url: 'public/php_script/unlikeArticle.php',
+	data: data	
+
+	}).success(function(){
+		location.reload();		
+	});
+}
+
+$scope.removeUnlike = function(data){
+	$http({
+	method: 'post',
+	url: 'public/php_script/removeUnlike.php',
+	data: data	
+
+	}).success(function(){
+		location.reload();		
+	});
+}
+
+$scope.removeLike = function(data){
+	$http({
+	method: 'post',
+	url: 'public/php_script/removeLike.php',
+	data: data	
+
+	}).success(function(){
+		location.reload();		
+	});
+}
+
+
+
+
 $scope.loginStudent = function(login_form){
 	$http({
 		method: 'post',

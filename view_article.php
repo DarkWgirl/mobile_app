@@ -3,18 +3,38 @@ session_start();
 include("public/php_script/db_config.php");
 
 if(isset($_SESSION['student_id'])){
-
-}
-else{
-    header("location: student_login.php");
+  $sid = $_SESSION['student_id'];
 }
 
+global $sid;
 
 $get_post_data = "";
 
+$reaction = "";
+$get_comments = "";
+
 if(isset($_GET['aid'])){
    $aid = $_GET['aid'];
+   global $aid;
     $get_post_data = mysqli_query($pos_db, "SELECT * from article_tbl INNER JOIN writer_tbl on writer_tbl.writer_id = article_tbl.writer_id where article_status = 'APPROVED' AND article_id = '$aid'");
+
+
+$get_comments = mysqli_query($pos_db, "SELECT * from comment_tbl INNER JOIN student_tbl on student_tbl.student_id = comment_tbl.student_id where article_id = '$aid'");
+
+ $check_sentiments_like = mysqli_query($pos_db, "SELECT * from sentiment_tbl where student_id = '$sid' AND liked_status = '1' AND article_id = '$aid'");
+ $exist_like = mysqli_num_rows($check_sentiments_like);
+ 
+ $check_sentiments_unlike = mysqli_query($pos_db, "SELECT * from sentiment_tbl where student_id = '$sid' AND liked_status = '0' AND article_id = '$aid'");
+ $exist_unlike = mysqli_num_rows($check_sentiments_unlike);
+
+if($exist_like > 0){
+  $reaction = "liked";
+}else if($exist_unlike > 0){
+  $reaction = "unliked";
+}else{
+  $reaction = "none";
+}
+
 
 }
 
@@ -35,23 +55,11 @@ if(isset($_GET['aid'])){
       <link rel="stylesheet" type="text/css" href="public/ckeditor5/sample/style.css">
     <script src="public/js/angular.js"></script>
   <script src="public/js/angular-route.js"></script>
-     <script src="public/js/myAngularApp.js"></script>
-      <script src="public/ckeditor5/build/ckeditor.js"></script>
-      <script src="public/ckeditor5/build/ckeditor.js.map"></script>
+     <script src="public/js/studentApp.js"></script>
   <script type="text/javascript" src="public/js/jquery-3.1.0.min.js"></script>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
   <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
 
-  <script>
-     ClassicEditor
-    .create( document.querySelector( '#editor' ) )
-    .then( editor => {
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
-    </script>  
     
                    
 
@@ -70,9 +78,19 @@ if(isset($_GET['aid'])){
    <nav class="navbar navbar-default navbar-static-top my-nav">
         <div class="menu">
             <div class="logo">
-                <a href="#">Technopacer Mobile Application</a>
+                <a href="student_index.php">Technopacer Mobile Application</a>
             </div>
         </div>
+        <?php
+        if(isset($_SESSION['student_id'])){
+        ?>
+        
+        &nbsp&nbsp<a href="student_logout.php" style="color: black; text-decoration: none;">Log out</a>
+          <?php
+
+        }
+        ?>
+</div>
     </nav>  
     <style type="text/css">
       .catalogue{
@@ -103,7 +121,69 @@ while($fetchArticle = mysqli_fetch_array($get_post_data)){
 echo $fetchArticle['article_body'];
 
 ?>
-      <a href><img src="public/asset/like.png"></a>&nbsp&nbsp&nbsp&nbsp<a href><img src="public/asset/unlike.png"></a><br><br>
+<br><br>
+<!--Condition on sentiments-->
+<?php
+if(isset($_SESSION['student_id'])){
+if($reaction === "liked"){
+?>
+<a href="" ng-click="removeLike(<?php echo $fetchArticle['article_id']; ?>)" style="background-color: blue; padding: 10px 10px; border-radius: 20px 20px;"><img src="public/asset/liked.png"></a>&nbsp&nbsp&nbsp&nbsp<a href="" ng-click="unlikeArticle(<?php echo $fetchArticle['article_id']; ?>)"><img src="public/asset/unlike.png"></a>
+<?php
+}else if($reaction === "unliked"){
+
+  ?>
+<a href="" ng-click="likeArticle(<?php echo $fetchArticle['article_id']; ?>)"><img src="public/asset/like.png"></a>&nbsp&nbsp&nbsp&nbsp<a href="" ng-click="removeUnlike(<?php echo $fetchArticle['article_id']; ?>)" style="background-color: blue; padding: 10px 10px; border-radius: 20px 20px;"><img src="public/asset/unliked.png"></a>
+<?php
+}else{
+?>
+<a href="" ng-click="likeArticle(<?php echo $fetchArticle['article_id']; ?>)"><img src="public/asset/like.png"></a>&nbsp&nbsp&nbsp&nbsp<a href="" ng-click="unlikeArticle(<?php echo $fetchArticle['article_id']; ?>)"><img src="public/asset/unlike.png"></a>
+
+
+<?php
+}
+?>
+<br><br>
+<!--Start of Comment Box -->
+<form method="POST" ng-submit="addComment(student_form)">
+<textarea class="form-control" ng-model="student_form.comment">
+</textarea>
+<input type="hidden" ng-model="student_form.aid" ng-init="student_form.aid='<?php echo $aid; ?>'">
+<button type="submit" class="btn btn-primary" style="width: 100%;">Add Comment</button>
+</form>
+<br><br>
+<?php
+$edit = false;
+while($comments = mysqli_fetch_array($get_comments)){
+  if($comments['student_id'] === $sid){
+    $edit = true;
+  }
+?>
+
+<b>Commented By: <?php echo $comments['student_fname']." ".$comments['student_lname']; ?></b><br>
+<i><?php echo $comments['comments']; ?>
+<br><br>
+<?php
+if($edit === true){
+?>
+<a href="" class="btn btn-default" ng-click="editComment(<?php echo $comments['comment_id']; ?>)">Edit</a><a href="" class="btn btn-default" ng-click="deleteComment(<?php echo $comments['comment_id']; ?>)">Delete</a>
+<br><br>
+<?php
+}
+?>
+</i>
+
+<?php
+} // end for comment query
+?>
+<!--End of Comment Box-->
+<?php
+} //end for sid if
+?>
+
+<!--End of Condition on sentiments-->
+
+
+<br><br>
 
     </div>
 
@@ -112,7 +192,33 @@ echo $fetchArticle['article_body'];
 ?>
 
     </div>
-    <!--end of admin Content here-->
+
+      <!-- Modal content-->
+<div class="modal fade" id="edit_comment" role="dialog">
+<div class="modal-dialog modal-md">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Edit Comment</h4>
+    </div>
+    <div class="modal-body">
+    <form method="POST" action="public/php_script/updateComment.php">
+    <div ng-repeat="comment in comments">
+<textarea class="form-control" name="comment">
+  {{comment.comment}}
+</textarea>
+<input type="hidden" name="comment_id" value="{{comment.comment_id}}">
+<input type="hidden" name="aid" value="<?php echo $aid; ?>">
+<button type="submit" name="submit" class="btn btn-primary" style="width: 100%;">Update Comment</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+
+    <!--end of body Content here-->
     </body>
     </div>
     </html>

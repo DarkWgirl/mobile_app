@@ -106,7 +106,8 @@ if(isset($_SESSION['student_id'])){
                         <input type="password" ng-model="login_form.password" placeholder="Password" required>
                     </div>
                     <div class="pass-link">
-                        <a href="#">Forgot password?</a></div>
+                        <a href="student_index.php">Continue As Guest</a>
+                        <!--<a href="#">Forgot password?</a> --></div>
                     <div class="field btn">
                         <div class="btn-layer">
                         </div>

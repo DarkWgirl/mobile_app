@@ -2,12 +2,6 @@
 session_start();
 include("public/php_script/db_config.php");
 
-if(isset($_SESSION['student_id'])){
-
-}
-else{
-    header("location: student_login.php");
-}
 
 
 $get_post_data = "";
@@ -82,6 +76,15 @@ if(isset($_POST['searchCategory'])){
                 <a href="#">Technopacer Mobile Application</a>
             </div>
         </div>
+        <?php
+        if(isset($_SESSION['student_id'])){
+        ?>
+        
+        &nbsp&nbsp<a href="student_logout.php" style="color: black; text-decoration: none;">Log out</a>
+          <?php
+
+        }
+        ?>
     </nav>  
     <style type="text/css">
       .catalogue{
