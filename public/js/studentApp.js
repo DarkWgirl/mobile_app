@@ -26,7 +26,7 @@ $scope.deleteComment = function(data){
 	if(r){
 	$http({
 		method: 'post',
-		url: 'public/php_script/deleteComment.php',
+		url: 'public/php_script/deleteComments.php',
 		data: data	
 
 	}).success(function(res){

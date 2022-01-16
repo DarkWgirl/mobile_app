@@ -10,15 +10,13 @@ if(isset($_SESSION['student_id'])){
   global $sid;
 
 
-
-$form_data = json_decode(file_get_contents("php://input"));
-
+if(isset($_POST['submit'])){
     
-$comment = $form_data->comment;
-$aid = $form_data->aid;
+$comment = $_POST['comment'];
+$aid = $_POST['aid'];
 
 $insert_comment = mysqli_query($pos_db, "INSERT INTO comment_tbl (student_id, article_id, comments) VALUES ('$sid', '$aid', '$comment')");
 
-
-
-?>
+header("location: ../../view_article.php?aid=".$aid."");
+}
+    ?>

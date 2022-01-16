@@ -52,20 +52,22 @@ if($exist_like > 0){
 
     <link rel="stylesheet" href="public/css/simple.css">
     <link rel="stylesheet" type="text/css" href="public/css/pos_style.css">
-      <link rel="stylesheet" type="text/css" href="public/ckeditor5/sample/style.css">
     <script src="public/js/angular.js"></script>
   <script src="public/js/angular-route.js"></script>
      <script src="public/js/studentApp.js"></script>
+
   <script type="text/javascript" src="public/js/jquery-3.1.0.min.js"></script>
   <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
   <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+
+  
 
     
                    
 
 </head>
 <div ng-app="myStoreApp" ng-controller="myStoreAppCtrl">
-<body data-editor="ClassicEditor" data-collaboration="false">
+<body>
 <style type="text/css">
   .my-nav{
     background-color: lightgreen;
@@ -144,12 +146,13 @@ if($reaction === "liked"){
 ?>
 <br><br>
 <!--Start of Comment Box -->
-<form method="POST" ng-submit="addComment(student_form)">
-<textarea class="form-control" ng-model="student_form.comment">
+<form method="POST"  action="public/php_script/addComment.php">
+<textarea class="form-control" name="comment">
 </textarea>
-<input type="hidden" ng-model="student_form.aid" ng-init="student_form.aid='<?php echo $aid; ?>'">
-<button type="submit" class="btn btn-primary" style="width: 100%;">Add Comment</button>
+<input type="hidden" name="aid" value="<?php echo $aid; ?>">
+<button type="submit"name="submit" class="btn btn-primary" style="width: 100%;">Add Comment</button>
 </form>
+
 <br><br>
 <?php
 $edit = false;
@@ -165,6 +168,7 @@ while($comments = mysqli_fetch_array($get_comments)){
 <?php
 if($edit === true){
 ?>
+
 <a href="" class="btn btn-default" ng-click="editComment(<?php echo $comments['comment_id']; ?>)">Edit</a><a href="" class="btn btn-default" ng-click="deleteComment(<?php echo $comments['comment_id']; ?>)">Delete</a>
 <br><br>
 <?php
