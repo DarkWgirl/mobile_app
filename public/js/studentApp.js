@@ -116,6 +116,9 @@ $scope.loginStudent = function(login_form){
 		if(data !=="1"){
 		location.reload();
 		}
+		else{
+			$scope.message_login_error = "Invalid username/password";
+		}
 	});
 }
 
@@ -160,6 +163,45 @@ $scope.studentSignUp = function(student_signup_form){
 		});
         
 }
+
+
+$scope.forgotPassword = function(login_form){
+	$http({
+	method: 'post',
+	url: 'public/php_script/email_forgot_password.php',
+	data: login_form
+	}).success(function(data){
+		if(data === "Email Not existing"){
+		$scope.message_error = data;
+		}else if(data === "Success"){
+		document.getElementById("verfication_password").style.display = "block";
+		document.getElementById("forgot_password").style.display = "none";
+		}
+	});
+}
+
+$scope.verifyPassword = function(login_form){
+	$http({
+		method: "post",
+		url: 'public/php_script/change_password.php',
+		data: login_form
+	}).success(function(data){
+		if(data === "Error changing password"){
+			$scope.message_error = data;
+		}else{
+			const redirectlogIn = async () =>{
+				location.href = "student_login.php";
+			}
+			document.getElementById("verfication_password").style.display = "none";
+			$scope.message_error = "Please login using your new password";
+			$scope.message_loading = "***Loading...***";
+			setTimeout(redirectlogIn, 2000);
+		}
+	});
+}
+
+
+
 
 
 

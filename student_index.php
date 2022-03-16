@@ -76,16 +76,16 @@ if(isset($_POST['searchCategory'])){
                 <a href="#">Technopacer Mobile Application</a>
             </div>
         </div>
-        <?php
+    </nav>  
+    <?php
         if(isset($_SESSION['student_id'])){
         ?>
         
-        &nbsp&nbsp<a href="student_logout.php" style="color: black; text-decoration: none;">Log out</a>
+        &nbsp&nbsp<a href="student_logout.php" style="color: black; text-decoration: none; float: right; margin-right: 10px;"><span><img src="public/images/logout-icon.png" width="50" /></span></a>
           <?php
 
         }
         ?>
-    </nav>  
     <style type="text/css">
       .catalogue{
         background-color: #ebf9ff;

@@ -53,8 +53,17 @@ $new_code = $access_code;
 }
 
   }
+  .menu > ul > li > a:hover {
+    text-decoration: none;
+    background-color: blue;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
 </style>
-    <nav class="navbar navbar-default navbar-static-top my-nav">
+    <nav class="navbar navbar-default-top my-nav">
         <div class="menu">
             <div class="logo">
                 <a href="#">Technopacer Mobile Application</a>
@@ -81,7 +90,8 @@ $new_code = $access_code;
    ?>
         <button class="pos-btn" style="font-family: Century Gothic;" ng-click="showWriter()">Writer Management</button><br><br>
         <button class="pos-btn" style="font-family: Century Gothic;" ng-click="showTeam()">Writings Management</button><br><br>
-         <button class="pos-btn" style="font-family: Century Gothic;" ng-click="seeRequest()">Request For Re-Edit</button>
+         <button class="pos-btn" style="font-family: Century Gothic;" ng-click="seeRequest()">Request For Re-Edit</button><br><br>
+         <button class="pos-btn" style="font-family: Century Gothic;" ng-click="seeReported()">See Reported</button>
 
         </div>
       </div>
@@ -219,7 +229,6 @@ $new_code = $access_code;
         </tbody>
         </table>
       </div>
-
 
       </div>
 
@@ -490,6 +499,49 @@ $new_code = $access_code;
     </div>
     </div>
     </div>
+
+
+
+    <div class="modal fade" id="student_reported" role="dialog">
+<div class="modal-dialog modal-md">
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Edit Admin: {{edit_admin_form.admin_name}}</h4>
+    </div>
+    <div class="modal-body">
+      
+        <table id="example" class="table table-striped table-bordered pos-table">
+        <thead>
+          <th>Student Name</th>
+          <th>Student Number</th>
+          <th>Status Report</th>
+          <th>Reason</th>
+          <th>Action</th>
+        </thead>
+        <tbody ng-repeat="team in team_work">
+        <tr>
+          <td>{{team.writer_name}}</td>
+          <td>{{team.writer_position}}</td>
+          <td>{{team.article_category}}</td>
+          <td>{{team.article_title}}</td>
+           <td>{{team.article_submit_date}}</td>
+           <td>{{team.article_status}}</td>
+           <td><a href="" ng-click="view_team_work_admin(team)" class="btn btn-default" style="width: 100px;">See Article</a><br><a href="" class="btn btn-default" style="width: 100px; color:{{team.remark_btn}}" ng-click="seeRemarks(team)">Remarks({{team.remark_count}})</a>
+        </td>
+        </tr>
+          
+        </tbody>
+        </table>
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+
 
 
 

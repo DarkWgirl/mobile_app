@@ -91,9 +91,10 @@ if(isset($_SESSION['student_id'])){
                 </div>
             </div>
             <p id="message" style="color:red;">
+            {{message_login_error}}
             <?php
             if(isset($_SESSION['warning'])){
-                 echo $_SESSION['warning'];
+                 echo $_SESSION['warning'];sssss
                 
                 }
             ?></p>
@@ -106,8 +107,8 @@ if(isset($_SESSION['student_id'])){
                         <input type="password" ng-model="login_form.password" placeholder="Password" required>
                     </div>
                     <div class="pass-link">
-                        <a href="student_index.php">Continue As Guest</a>
-                        <!--<a href="#">Forgot password?</a> --></div>
+                        <a href="student_index.php">Continue As Guest</a><br>
+                       <a href="forgot_password.php">Forgot password?</a></div>
                     <div class="field btn">
                         <div class="btn-layer">
                         </div>
@@ -140,6 +141,7 @@ if(isset($_SESSION['student_id'])){
                 </form>
             </div>
             <!--End of Form-->
+
             <?php
         }
             ?>

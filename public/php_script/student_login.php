@@ -9,7 +9,7 @@ $username = $form_data->email;
 $password = $form_data->password;
 
 
-$login = mysqli_query($pos_db, "SELECT * from student_tbl where student_email = '$username' AND student_password = '$password'");
+$login = mysqli_query($pos_db, "SELECT * from student_tbl where student_email = '$username' AND student_password = '$password' AND student_status = 'VERIFIED'");
 $fetch_data = mysqli_fetch_array($login);
 $check_data = mysqli_num_rows($login);
 
